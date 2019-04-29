@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <style>
+            body{
+                font-family: sans-serif;
+            }
+
+            .container{
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+                max-width:300px;
+                margin-top:200px;
+            }
+
+            input[type="text"], input[type="email"], input[type="password"]{
+                width:300px;
+                height:50px;
+                padding:5px;
+                margin-bottom:7px;
+                font-size:1em;
+            }
+
+            input[type="submit"]{
+                width:70px;
+                height:50px;
+                background-color: #e91e63;
+                color:white;
+                border:none;
+                margin-bottom:5px;
+            }
+
+            button{
+                display:inline;
+                width:70px;
+                height:50px;
+                background-color: #e91e63;
+                color:white;
+                border:none;
+                margin-bottom:5px;
+            }
+            a{
+                color:white;
+                text-decoration:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form method="POST" action="/login">
+                <h1>Login</h1><br>
+                <span id="message">Recaptcha not verified</span><br>
+                <input type="email" name="email" id="email" placeholder="Email" />
+                <input type="password" name="password" id="password" placeholder="Password" />
+                <br>
+                
+                <input type="submit" id="sbmt" value="Login"/>
+                <a href="/register"><button>Register</a>
+            </form>
+        </div>
+
+    </body>
+     <script>
+
+            let params = (new URL(document.location)).searchParams;
+            let message = params.get("e");
+            document.getElementById('message').innerHTML = message;
+
+    </script>
+</html> 
